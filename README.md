@@ -12,3 +12,14 @@ This service when be finished will be free and available for every person at Bra
 - run at command line npm install for dependencies
 - run ng serve --o to see in a browser
 - press F12 and use simulator resolution for a better experience
+
+## Available features:
+- User registration with verification code
+- User login / logout
+- Missing people search
+- Missing people registration
+- Missing people details information
+
+
+Obs.: All information available at this moment in the app are just samples of fake data to seed the application along de development and tests. 
+ 
