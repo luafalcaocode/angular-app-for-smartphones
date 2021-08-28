@@ -5,10 +5,7 @@
 export const environment = {
   production: false,
   endpoints: {
-      host: 'https://localhost:44332',
-    //  host: 'http://localhost/api',
-    //  host: 'https://luafalcao.com/api',
-   // host: 'https://localhost:5001',
+    host: 'https://luafalcao.com/api',
       auth: {
       login: '/reencontre/auth/login',
       usuario: '/reencontre/auth/usuario',
