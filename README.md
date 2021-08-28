@@ -23,4 +23,4 @@ This service when be finished will be free and available for every person at Bra
 
 
 Obs.: All information available at this moment in the app are just samples of fake data to seed the application along de development and tests. 
-Obs2: if the app crashes just hit F5! Bugs can happens until we finish the project! ;)
+Obs2: if the app crashes just hit F5! 
