@@ -1,0 +1,30 @@
+<div [ngSwitch]="modalType" class="z-modal">
+  <div *ngSwitchCase="'success'">
+    <div class="icon-container">
+      <mat-icon class="icon-success" aria-hidden="false" aria-label="sucesso">check_circle_outline</mat-icon>
+    </div>
+  </div>
+  <div *ngSwitchCase="'warning'">
+    <div class="icon-container">
+      <mat-icon class="icon-warning" aria-hidden="false" aria-label="aviso">error_outline</mat-icon>
+    </div>
+  </div>
+  <div *ngSwitchCase="'error'">
+    <div class="icon-container">
+      <mat-icon class="icon-error" arid-hidden="false" aria-label="erro">highlight_off</mat-icon>
+    </div>
+  </div>
+
+  <h2 mat-dialog-title *ngIf="data.title" [class.success]="modalType == 'success' || !modalType" [class.error]="modalType == 'error'" [class.warning]="modalType == 'warning'">{{ data.title }}</h2>
+  <p *ngIf="data.caption" class="modal-caption" [innerHTML]="data.caption"></p>
+  <div mat-dialog-content>
+    <ul [ngStyle]="{ 'margin-top': data.invalidFields ? '10px' : '0' }">
+      <li *ngFor="let item of data.invalidFields">
+        <span class="invalid-field modal-caption" [innerHTML]="item"></span>
+      </li>
+    </ul>
+  </div>
+  <div mat-dialog-actions class="u-text-right">
+    <br />
+    <button mat-button mat-dialog-close [class.btn-warning]="modalType == 'warning'" [class.btn-error]="modalType == 'error'" [class.btn-success]="modalType == 'success' || !modalType" (click)="closeDialog()">Entendi</button>
+  </div>

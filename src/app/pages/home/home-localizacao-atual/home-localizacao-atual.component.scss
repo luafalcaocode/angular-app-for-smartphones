@@ -1,0 +1,15 @@
+.localizacao-atual-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+  .localizacao-atual-icon {
+    vertical-align: -6px;
+    color: var(--silvermine);
+  }
+
+
+  span {
+    color: var(--silvermine);
+  }
+}

@@ -1,0 +1,8 @@
+<div class="app-lightbox" *ngIf="isVisible" [class.darkerThanBlack]="darkerThanBlack"> 
+  <div class="app-lightbox-close" (click)="onClose()" *ngIf="!hideForSecurity">
+    <mat-icon>close</mat-icon>
+  </div>
+  <div class="app-lightbox-content">
+    <ng-content></ng-content>
+  </div>
+</div>

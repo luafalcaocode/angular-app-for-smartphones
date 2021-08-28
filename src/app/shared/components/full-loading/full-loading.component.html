@@ -1,0 +1,26 @@
+<div class="full-loading" *ngIf="isLoading" [ngStyle]="{ 'background-color': backgroundColor, 'z-index' : zIndex }">
+  <div class="full-loading-progress">
+    <div [ngSwitch]="type">
+      <div *ngSwitchCase="'indeterminate'">
+        <div class="full-loading-progress-message">
+          <span [ngStyle]="{'color': color }">{{ message }}</span>
+        </div>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+      <div *ngSwitchCase="'spinner'">
+        <!-- <mat-spinner color="primary" class="u-margin-auto" diameter="30"></mat-spinner> -->
+        <div class="full-loading-progress-message">
+          <span [ngStyle]="{'color': color }">{{ message }}</span>
+        </div>
+        <div class="page-loading"></div>
+      </div>
+      <div *ngSwitchCase="'lightbox'">
+        <!-- <mat-spinner color="primary" class="u-margin-auto" diameter="30"></mat-spinner> -->
+        <div class="full-loading-progress-message">
+          <span [ngStyle]="{'color': color }">{{ message }}</span>
+        </div>
+        <div class="page-loading"></div>
+      </div>
+    </div>
+  </div>
+</div>

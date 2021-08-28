@@ -1,0 +1,11 @@
+<div class="estatisticas-container">
+  <div>
+    <h2 class="u-normal highlighted">Estatísticas:</h2>
+
+    <div class="estatistica-card-group" *ngFor="let item of estatisticas">
+      <p class="highlighted">{{ item.titulo  }}</p>
+      <card type="info" [content]="item"></card>
+    </div>
+  </div>
+</div>
+

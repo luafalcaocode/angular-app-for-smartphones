@@ -1,0 +1,6 @@
+<label [hidden]="isLoading" *ngIf="!isDateSelected">{{ label }}</label> <br />
+<div [hidden]="isLoading" [class.bring-front]="!isCalendarOpen">
+    <input type="text" [ngClass]="element">
+</div>
+
+<mini-loading [isLoading]="isLoading" marginLeft="0px"></mini-loading>

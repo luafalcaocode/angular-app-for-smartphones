@@ -1,0 +1,12 @@
+<mat-list>
+  <mat-list-item *ngFor="let item of items">
+    <mat-icon mat-list-icon>{{item.icon }}</mat-icon>
+    <div mat-line class="u-capitalize">{{ item.title }}</div>
+    <div mat-line class="uchiha u-capitalize">
+      <p class="u-scroll-line">
+        {{ item.description }}
+      </p>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

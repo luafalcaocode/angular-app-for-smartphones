@@ -1,0 +1,37 @@
+<mat-grid-list cols="1" rowHeight="100px" gutterSize="20px">
+  <mat-grid-tile>
+    <div class="logo-container">
+      <mat-icon aria-hidden="false" aria-label="usuario" class="logo-usuario">account_circle</mat-icon>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div [hidden]="isLoading">
+  <div>
+    <mat-grid-list cols="1" rowHeight="40px" gutterSize="10px">
+      <mat-grid-tile>
+        <h1>{{ usuario.nome }} </h1>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="1" rowHeight="20px" gutterSize="10px">
+      <mat-grid-tile>
+        <span class="sky">{{ usuario.email }}</span>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div class="form-logout-container">
+    <form class="example-form" autocomplete="off" #loginForm="ngForm" (ngSubmit)="onLogout();">
+      <mat-grid-list cols="1" rowHeight="30px" gutterSize="20px">
+        <mat-grid-tile>
+          <button type="submit" mat-raised-button color="primary" *ngIf="!isLoadingBtn">finalizar sessão</button>
+        </mat-grid-tile>
+        <mini-loading [isLoading]="isLoadingBtn" *ngIf="isLoadingBtn"></mini-loading>
+      </mat-grid-list>
+    </form>
+  </div>
+
+</div>
+
+

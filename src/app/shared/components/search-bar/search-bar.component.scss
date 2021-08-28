@@ -1,0 +1,129 @@
+.search-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    z-index: var(--shield);
+
+    mat-toolbar {
+        background-color: var(--white);
+        top: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+        #headerIcon {
+            padding: 0 !important;
+            right: 18px;
+            position: relative;
+            font-size: var(--icon);
+        }
+
+        #headerTitle {
+            padding-left: 0px;
+            padding-top: 4px;
+        }
+    }
+}
+
+.search-bar-grid {
+  display: grid;
+  grid-template-columns: 22% auto;
+  width: 100%;
+}
+
+.u-zero {
+  height: 0;
+}
+
+.u-cem {
+  height: 100%;
+}
+
+
+
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple  {
+  display: none !important;
+ background-color: var(--white) !important;
+}
+
+:host ::ng-deep .mat-form-field-ripple {
+    display: none !important;
+    background-color: var(--white) !important;
+}
+
+:host ::ng-deep  .mat-form-field-underline {
+    display: none !important;
+    background-color: var(--white) !important;
+}
+
+:host ::ng-deep .mat-form-field {
+  width: 100% !important;
+}
+
+:host ::ng-deep button.icon-close {
+  position: relative !important;
+  top: 4px !important;
+}
+
+
+
+.secao-semResultados {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  text-align: center;
+
+  .secao-semResultados-conteudo {
+    position: relative;
+    top: 40%;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    h1 {
+      color: var(--silvermine);
+    }
+  }
+}
+
+.secao-pesquisa-default {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  text-align: center;
+
+  .secao-pesquisa-conteudo {
+    position: relative;
+    top: 40%;
+    margin-left: 10px;
+    margin-right: 50px;
+
+    mat-icon {
+      font-size: 80px !important;
+      color: var(--silvermine) !important;
+    }
+  }
+}
+.conteudo-search-bar {
+  position: fixed;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  div {
+    position: relative;
+    top: 100px;
+    margin-bottom: 186px;
+  }
+}
+
+
+
+
+

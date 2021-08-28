@@ -1,0 +1,49 @@
+.last-guardian {
+  background-color: white;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--special);
+  position: fixed;
+
+  .last-guardian-content {
+    position: relative;
+    top: 30%;
+    text-align: center;
+    color: var(--silvermine);
+
+    h1 {
+      color: var(--sky);
+      }
+
+    form {
+
+      input {
+        height: 30px;
+        outline-style: none;
+        font-size: 18px;
+        border: none;
+        border-bottom: solid 1px var(--sky);
+      }
+
+      button {
+        background-color: transparent;
+        border: solid thin var(--sky);
+        color: var(--sky);
+        width: 100px;
+        height: 30px;
+      }
+
+      button.disabled {
+        background-color: var(--silver) !important;
+        border: solid thin var(--silver);
+        color: white;
+      }
+
+
+    }
+
+  }
+}
+
+

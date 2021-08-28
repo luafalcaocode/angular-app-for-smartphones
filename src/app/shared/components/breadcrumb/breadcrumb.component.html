@@ -1,0 +1,18 @@
+<div class="breadcrumb-container" id="breadCrumbContainer">
+   
+        <button class="breadcrumb-item" color="default" mat-fab [class.breadcrumb-active-always]="activeBreadCrumbAlways(1)" [class.breadcrumb-active]="activeBreadcrumb(1)" (click)="onSelectStep($event)">
+            1
+        </button>
+        <div class="breadcrumb-line"></div>
+        <button class="breadcrumb-item" color="default" mat-fab [class.breadcrumb-active]="activeBreadcrumb(2)" (click)="onSelectStep($event)">
+            2
+        </button>    
+        <div class="breadcrumb-line"></div>
+        <button class="breadcrumb-item" mat-fab color="default" [class.breadcrumb-active]="activeBreadcrumb(3)" (click)="onSelectStep($event)">
+            3
+        </button>
+        <button mat-fab color="default" class="button-simple button-close" (click)="onCloseBreadCrumb($event)"><mat-icon>expand_more</mat-icon></button>
+        
+   
+</div>
+

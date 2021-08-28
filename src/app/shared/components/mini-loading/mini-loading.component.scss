@@ -1,0 +1,26 @@
+.mini-loading {
+  width: 17px;
+  height: 17px;
+  border: solid 2px var(--sky);
+  border-top: solid 2px var(--white);
+  border-right: solid 2px var (--white);
+  border-radius: 50%;
+  vertical-align: -3px;
+  animation: spin 0.4s linear infinite;
+  -webkit-animation: spin 0.4s linear infinite;
+  -moz-animation: spin 0.4s linear infinite;
+
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 11px;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}

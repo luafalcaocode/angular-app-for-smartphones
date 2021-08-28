@@ -1,0 +1,67 @@
+<div [ngSwitch]="type">
+  <!-- Add -->
+  <div class="card-container" *ngSwitchCase="'add'" (click)="onOpenCard('add')">
+    <mat-spinner color="warn" class="u-margin-auto card-spinner" diameter="30" *ngIf="isLoading"></mat-spinner>
+    <div *ngIf="!isLoading">
+      <div class="card-icon">
+        <mat-icon class="sky" aria-hidden="false" aria-label="adicionar">add</mat-icon>
+      </div>
+      <div class="card-add-button-container">
+        <button mat-button color="default" class="sky small">adicionar um novo anúncio</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anúncios -->
+  <div class="card-container-info" *ngSwitchCase="'info'" (click)="onOpenCard('info')" [class.u-no-events]="hasError || isLoading">
+    <div *ngIf="!hasError; else cardError">
+      <mat-spinner color="warn" class="u-margin-auto card-spinner" diameter="30" *ngIf="isLoading"></mat-spinner>
+      <mat-grid-list cols="2" rowHeight="2:1" *ngIf="!isLoading">
+        <mat-grid-tile>
+          <mat-icon aria-hidden="false" aria-label="adicionar">person</mat-icon>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="card-totalizador">
+            <h2 class="highlighted">{{ content.quantidade  }}</h2>
+            <span>{{ content.subtitulo }}</span>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2">
+          <div class="visualizar-detalhes small">Toque para ver detalhes</div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+  <!-- Imagens -->
+  <div class="card-container card-imagem" *ngSwitchCase="'anuncio'" (click)="onOpenCard(type)" [class.u-no-events]="hasError">
+    <div class="card-content">
+      <mat-spinner color="warn" class="u-margin-auto" diameter="30" *ngIf="!cardImageIsVisible"></mat-spinner>
+      <img mat-card-imagem [src]="anuncio.imagem" alt="imagemDinamica" [hidden]="!cardImageIsVisible" #cardImage loading="lazy" />
+
+      <div class="card-imagem-visualizacoes">
+        <span class="small" [class.u-fadeOut]="anuncio.quantidadePessoasQueViramDesaparecido == 0"
+          [class.u-fadeIn]="anuncio.quantidadePessoasQueViramDesaparecido > 0">{{ anuncio.quantidadePessoasQueViramDesaparecido }}
+          pessoas a viram</span>
+      </div>
+
+      <div class="card-imagem-action-open">
+        <span class="material-icons">
+          arrow_circle_down
+        </span>
+      </div>
+
+      <div class="card-imagem-legenda">
+        <span class="small">{{ anuncio.nomeDoDesaparecido  }} </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #cardError>
+  <div class="card-mensagem-erro">
+    <h2>Ops!</h2>
+    <p class="silvermine">Não foi possível carregar o conteúdo</p>
+  </div>
+</ng-template>

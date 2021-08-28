@@ -1,0 +1,37 @@
+.app-lightbox {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    color: var(--white);
+    background-color: var(--lightbox);
+    z-index: var(--z-index-gold);
+
+    .app-lightbox-close {
+        position: relative;
+        right: 20px;
+        top: 20px;
+        color: var(--white);
+        text-align: right;
+
+        mat-icon {
+            border-radius: 50%;
+            border: solid 1px transparent;
+            background: rgba(255,255,255, 0.2);
+            padding: 5px;
+        }
+    }
+    
+    .app-lightbox-content {
+        position: relative;
+        top: 30%;
+    }
+}
+
+
+.darkerThanBlack{
+    background-color: #000;
+}
+
+

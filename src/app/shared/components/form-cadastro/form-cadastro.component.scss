@@ -1,0 +1,50 @@
+mat-grid-list {
+
+    margin-top: 30px;
+
+    .logo-container {
+
+      .logo-usuario {
+        width: auto !important;
+        font-size: 62px;
+        color: var(--sky);
+      }
+    }
+
+    .login-descricao-container {
+      padding: 30px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      text-align: center;
+
+      span {
+        color: var(--silvermine);
+        font-weight: lighter;
+      }
+    }
+  }
+
+  .form-login-container {
+    text-align: center;
+    margin-top: 30px;
+
+    form {
+      min-width: 150px;
+      width: 100%;
+
+      button {
+        border-radius: 8px;
+      }
+
+    }
+
+    mat-form-field {
+      width: 72%;
+
+    }
+  }
+
+  .outros-links  {
+    margin-top: 40px;
+  }
+

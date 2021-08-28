@@ -1,0 +1,14 @@
+.invalid-message {
+    position: relative;
+    top: -12px;
+    /* border: solid 1px var(--sharingan); */
+    border-radius: 5px;
+    font-size: var(--secondary-size);
+    margin-bottom: 10px;
+    padding: 10px;
+    color: var(--sharingan);
+    
+    p {
+        font-size: var(--secondary-size) !important;
+    }
+}

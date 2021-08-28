@@ -1,0 +1,42 @@
+<app-header (onClickIconEvent)="onClickIcon($event)" [title]="headerTitle" [leftIcon]="leftHeaderIcon" *ngIf="temUmCodigoDeAcessoValido">
+</app-header>
+<div class="main-container" *ngIf="temUmCodigoDeAcessoValido; else theLastGuardian">
+  <router-outlet></router-outlet>
+</div>
+
+<app-navbar *ngIf="temUmCodigoDeAcessoValido"></app-navbar>
+
+<reveal-window [title]="revealTitle" icon="close" *ngIf="temUmCodigoDeAcessoValido">
+  <div [ngSwitch]="revealContent">
+    <div *ngSwitchCase="'login'">
+      <form-login></form-login>
+    </div>
+    <div *ngSwitchCase="'logout'">
+      <form-logout></form-logout>
+    </div>
+    <div *ngSwitchCase="'cadastrar'">
+      <form-cadastro></form-cadastro>
+    </div>
+    <div *ngSwitchCase="'verification-code'">
+      <form-verification-code></form-verification-code>
+    </div>
+  </div>
+</reveal-window>
+
+<!-- <error-message></error-message> -->
+
+<ng-template #theLastGuardian>
+  <div class="last-guardian">
+    <div class="last-guardian-content">
+      <h1>Digite o código de acesso: </h1>
+
+      <form class="example-form" autocomplete="off" (ngSubmit)="validarAcesso()">
+        <mat-form-field appearance="fill">
+          <input (input)="validarTamanhoCodigoAcesso()" matInput type="password" name="codigoAcesso" [(ngModel)]="codigoAcesso" required> <br /> <br /><br />
+          <button mat-raised-button color="primary" class="send-button" type="submit" [disabled]="campoDesabilitado" [class.disabled]="campoDesabilitado">ENVIAR</button>
+        </mat-form-field>
+      </form>
+
+    </div>
+  </div>
+</ng-template>

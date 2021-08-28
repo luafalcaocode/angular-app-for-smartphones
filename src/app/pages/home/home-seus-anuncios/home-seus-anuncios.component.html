@@ -1,0 +1,8 @@
+<div class="seus-anuncios-container">
+  <div>
+    <h2 class="u-normal highlighted">Seus anúncios:</h2>
+    <p class="highlighted">{{ titleCard }}</p>
+    <card [type]="cardType" [content]="anuncio" (onOpenCardEvent)="onOpen($event)" [isLoading]="isLoading" [hasError]="error"></card>
+  </div>
+</div>
+

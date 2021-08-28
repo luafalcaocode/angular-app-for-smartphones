@@ -1,0 +1,56 @@
+<div class="search-bar u-cem" id="searchBar">
+  <mat-toolbar [ngStyle]="{'position': 'fixed' }" class="z-special-two">
+    <mat-toolbar-row>
+      <div class="search-bar-grid">
+        <div style="padding-top: 20px">
+          <button class="button-simple" (click)="onClickWest($event)" mat-fab color="default" aria-label="voltar">
+            <mat-icon class="">west</mat-icon>
+          </button>
+        </div>
+        <div>
+          <form autocomplete="off">
+            <mat-form-field appearance="fill">
+              <input type="search" matInput [(ngModel)]="valorPesquisado" name="valorPesquisado" placeholder="Pesquisar" tabIndex="-1"
+                (keydown)="quandoUsuarioClicarEmPesquisar($event)" id="campoBuscaAnuncios" #campoBuscaAnuncios />
+              <button *ngIf="valorPesquisado" matSuffix mat-icon-button aria-label="limpar"
+                (click)="quandoUsuarioClicarNoIconeFechar($event)" class="icon-close">
+                <mat-icon>close</mat-icon>
+              </button>
+
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div [ngSwitch]="statusPesquisa">
+    <div *ngSwitchCase="'carregando'" class="conteudo-carregando z-special-one">
+      <div *ngSwitchCase="'carregando'" id="searchBar">
+        <full-loading type="spinner" isLoading="true" message="Carregando..." zIndex="100000">
+        </full-loading>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'ok'" class="conteudo-search-bar z-special-one" (scroll)="onScroll($event)">
+      <div>
+        <card type="anuncio" [quantidadeItensCadastrados]="quantidadeResultados" [anuncio]="item"
+          [hasError]="error" (onOpenCardEvent)="onOpen($event)" *ngFor="let item of resultados"></card>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'resultadoNaoEncontrado'" class="secao-semResultados z-special-one">
+      <div class="secao-semResultados-conteudo">
+        <h1>Nenhum resultado encontrado</h1>
+      </div>
+    </div>
+
+    <div *ngSwitchDefault class="secao-pesquisa-default">
+      <div class="secao-pesquisa-conteudo">
+        <mat-icon>search</mat-icon>
+      </div>
+    </div>
+  </div>
+
+
+</div>

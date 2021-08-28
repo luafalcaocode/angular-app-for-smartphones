@@ -1,0 +1,29 @@
+<div class="home-seus-anuncios" id="homeSeusAnuncios">
+  <div class="two-columns-grid" [class.u-none]="isPesquisarAtivado" id="containerPesquisaAnuncios">
+    <div>
+      <h2 class="u-normal highlighted">{{ quantidadeItensCadastrados }} anúncios cadastrados</h2>
+    </div>
+    <div class="pesquisar-anuncios-container">
+      <button class="button-simple" (click)="quandoUsuarioClicarNoIconeDePesquisa()" mat-fab color="default">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <card [type]="cardType" [quantidadeItensCadastrados]="quantidadeItensCadastrados" [anuncio]="anuncio"
+    [hasError]="error" (onOpenCardEvent)="onOpen($event)" *ngFor="let anuncio of anuncios"></card>
+</div>
+
+
+
+<search-bar *ngIf="isSearchBarVisible"
+   [statusPesquisa]="statusPesquisa"
+   [resultados]="anunciosPesquisados"
+   [quantidadeResultados]="quantidadeItensRetornadosNaPesquisa"
+   [pagina]="paginaPesquisa"
+
+  (hiding)="quandoUsuarioClicarNoIconeDeRetorno($event)" (onTyping)="quandUsuarioDigitarAlgonoCampoDePesquisa($event)"
+  (onCloseSearch)="quandoUsuarioLimparPesquisa($event)"
+  (onSearch)="quandoUsuarioConfirmarPesquisa($event)"
+  tabIndex="-1">
+</search-bar>

@@ -1,0 +1,231 @@
+<div class="form-cadastro-container" id="formCadastroContainer">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" autocomplete="off" method="POST" enctype="multipart/form-data">
+    <!-- Passo 1 -->
+    <div [hidden]="passoSelecionadoNaBreadcrumb != 1">
+      <mat-form-field appearance="fill" class="primary-field">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="no mínimo 3 letras" formControlName="nome" type="text"
+          minlength="3" (focus)="onFocusCampoFormulario($event)" (blur)="onBlurCampoFormulario($event)">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="secondary-field">
+        <mat-label>Cidade</mat-label>
+        <input matInput placeholder="no mínimo 3 letras" formControlName="cidade" (focus)="onFocusCampoFormulario($event)" (blur)="onBlurCampoFormulario($event)">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="third-field u-right">
+        <mat-label>Estado</mat-label>
+        <input matInput placeholder="2 letras" formControlName="estado" maxlength="2" (focus)="onFocusCampoFormulario($event)" (blur)="onBlurCampoFormulario($event)">
+      </mat-form-field>
+
+      <div class="form-datepicker-container">
+        <div class="form-datepicker-group" (click)="dataNascimento.open()" >
+          <mat-form-field appearance="fill" class="u-width-100">
+            <mat-label>Selecione a data de nascimento</mat-label>
+            <input matInput [matDatepicker]="dataNascimento" formControlName="dataNascimento" (click)="onFocusCampoFormulario($event)" (blur)="onBlurCampoFormulario($event)" disabled>
+            <mat-datepicker-toggle matSuffix [for]="dataNascimento"></mat-datepicker-toggle>
+            <mat-datepicker touchUi="true" #dataNascimento disabled="false"></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="form-datepicker-group" (click)="dataDesaparecimento.open()">
+          <mat-form-field appearance="fill" class="u-width-100">
+            <mat-label>Selecione a data do desaparecimento</mat-label>
+            <input matInput [matDatepicker]="dataDesaparecimento" class="default-font-size-input" formControlName="dataDesaparecimento" (click)="onFocusCampoFormulario($event)" (blur)="onBlurCampoFormulario($event)" disabled>
+            <mat-datepicker-toggle matSuffix [for]="dataDesaparecimento"></mat-datepicker-toggle>
+            <mat-datepicker touchUi="true" #dataDesaparecimento disabled="false"></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <button type="button" mat-raised-button color="primary" class="send-button"
+        (click)="quandoClicarEmAvancar(2)">Avançar</button>
+    </div>
+
+    <!-- Passo 2 -->
+    <div [hidden]="passoSelecionadoNaBreadcrumb != 2">
+      <div class="toggle-group toggle-group-genero">
+        <label>Selecione o gênero (opcional):</label>
+        <mat-button-toggle-group name="genero" aria-label="Font Style">
+          <mat-button-toggle value="masculino" (click)="setGenero('masculino')"
+            [class.active-toggle]="generoSelectedField == 'masculino'" class="toggle-genero">
+            <div class="toggle-genero-icon">
+              <span class="material-icons">
+                male
+              </span>
+            </div>
+
+            <div class="toggle-genero-descricao">
+              Masculino
+            </div>
+          </mat-button-toggle>
+
+          <mat-button-toggle value="feminino" (click)="setGenero('feminino')"
+            [class.active-toggle]="generoSelectedField == 'feminino'" class="toggle-genero">
+            <div class="toggle-genero-icon">
+              <span class="material-icons">
+                female
+              </span>
+            </div>
+
+            <div class="toggle-genero-descricao">
+              Feminino
+            </div>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+      <div class="toggle-group  toggle-group-genero">
+        <label>Selecione a etnia (opcional):</label>
+        <mat-button-toggle-group name="etnia" aria-label="Font Style">
+          <mat-button-toggle value="branca" (click)="setEtnia('branca')"
+            [class.active-toggle]="etniaSelectedField == 'branca'">
+            <div class="toggle-letter-group">
+              <span class="toggle-letter">
+                B
+              </span>
+            </div>
+
+            <div class="toggle-genero-descricao">
+              ranca
+            </div>
+          </mat-button-toggle>
+
+          <mat-button-toggle value="preta" (click)="setEtnia('preta')"
+            [class.active-toggle]="etniaSelectedField == 'preta'">
+            <div class="toggle-letter-group">
+              <span class="toggle-letter">
+                P
+              </span>
+            </div>
+
+            <div class="toggle-genero-descricao">
+              reta
+            </div>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <mat-button-toggle-group name="etnia">
+          <mat-button-toggle value="parda" (click)="setEtnia('parda')"
+            [class.active-toggle]="etniaSelectedField == 'parda'">
+            <div class="toggle-letter-group">
+              <span class="toggle-letter">
+                I
+              </span>
+            </div>
+
+            <div class="toggle-genero-descricao">
+              ndígena
+            </div>
+          </mat-button-toggle>
+          <mat-button-toggle value="indigena" (click)="setEtnia('indigena')"
+            [class.active-toggle]="etniaSelectedField == 'indigena'">
+            <div class="toggle-letter-group">
+              <span class="toggle-letter">
+                P
+              </span>
+            </div>
+
+            <div class="toggle-genero-descricao">
+              arda
+            </div>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+      <div class="medidas-group slider-group">
+        <div class="simple-grid"><label>ALTURA (opcional):</label></div>
+        <div class="simple-grid" class="slider-group-value">
+          <span>{{ alturaBinding }} cm</span>
+        </div>
+        <div class="simple-grid">
+          <div class="simple-slider-container">
+            <input type="range" min="100" max="300" [(ngModel)]="alturaBinding" class="simple-slider"
+              formControlName="altura" />
+          </div>
+        </div>
+      </div>
+
+      <div class="medidas-group slider-group">
+        <div class="simple-grid"><label>PESO (opcional):</label></div>
+        <div class="simple-grid" class="slider-group-value">
+          <span>{{ pesoBinding }} kg</span>
+        </div>
+        <div class="simple-grid">
+          <div class="simple-slider-container">
+            <input type="range" min="1" max="600" [(ngModel)]="pesoBinding" class="simple-slider"
+              formControlName="peso" />
+          </div>
+        </div>
+      </div>
+
+
+      <button type="button" mat-raised-button color="primary" class="send-button"
+        (click)="quandoClicarEmAvancar(3)">Avançar</button>
+
+    </div>
+
+    <div [hidden]="passoSelecionadoNaBreadcrumb != 3">
+      <!-- Passo 3 -->
+      <div classs="attachment-group">
+        <label class="silvermine label-anexos">Inclua uma foto da pessoa: </label> <br />
+
+        <div class="attachment-grid-remove-container">
+          <mat-icon class="attachment-grid-remove-item" aria-hidden="false" aria-label="remover"
+            (click)="removeAttachment('attachment_1')" [class.u-hidden]="!oneSelected">close</mat-icon>
+          <mat-icon class="attachment-grid-remove-item" aria-hidden="false" aria-label="remover"
+            (click)="removeAttachment('attachment_2')" [class.u-hidden]="!twoSelected">close</mat-icon>
+          <mat-icon class="attachment-grid-remove-item" aria-hidden="false" aria-label="remover"
+            (click)="removeAttachment('attachment_3')" [class.u-hidden]="!threeSelected">close</mat-icon>
+          <mat-icon class="attachment-grid-remove-item" aria-hidden="false" aria-label="remover"
+            (click)="removeAttachment('attachment_4')" [class.u-hidden]="!fourSelected">close</mat-icon>
+        </div>
+
+        <div class="attachment-buttons">
+          <div class="container-attachments">
+            <mat-grid-list cols="4" rowHeight="60px" gutterSize="20px">
+              <mat-grid-tile class="grid-radius" [class.grid-tile]="!oneSelected">
+                <attachment (fileSelectedEvent)="onAttachmentSelected($event)" fieldId="attachment_1"
+                  [clear]="!oneSelected">
+                </attachment>
+              </mat-grid-tile>
+              <mat-grid-tile class="grid-radius" [class.grid-tile]="!twoSelected">
+                <attachment (fileSelectedEvent)="onAttachmentSelected($event)" fieldId="attachment_2"
+                  [clear]="!twoSelected">
+                </attachment>
+              </mat-grid-tile>
+              <mat-grid-tile class="grid-radius" [class.grid-tile]="!threeSelected">
+                <attachment (fileSelectedEvent)="onAttachmentSelected($event)" fieldId="attachment_3"
+                  [clear]="!threeSelected">
+                </attachment>
+              </mat-grid-tile>
+              <mat-grid-tile class="grid-radius" [class.grid-tile]="!fourSelected">
+                <attachment (fileSelectedEvent)="onAttachmentSelected($event)" fieldId="attachment_4"
+                  [clear]="!fourSelected">
+                </attachment>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </div>
+
+        <mat-form-field appearance="fill" class="primary-field">
+          <mat-label>Característica Particular (opcional):</mat-label>
+          <input matInput placeholder="p. ex., possui uma tatuagem de borboleta"
+            formControlName="caracteristicaParticular" (focus)="onFocusCampoFormulario($event)" (blur)="onBlurCampoFormulario($event)">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="primary-field">
+          <mat-label>Observação (opcional):</mat-label>
+          <textarea rows="3" cols="50" maxlength="300" matInput  placeholder="Insira aqui qualquer informação que ache relevante sobre o desaparecimento da pessoa." formControlName="observacao" (focus)="onFocusCampoFormulario($event)" (blur)="onBlurCampoFormulario($event)"></textarea>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" class="send-button" type="submit" [disabled]="passoSelecionadoNaBreadcrumb != '3'">
+        <span *ngIf="!isLoading">Concluir</span>
+        <div *ngIf="isLoading">
+          <span>Carregando</span>
+          <mini-loading [isLoading]="isLoading"></mini-loading>
+        </div>
+      </button>
+    </div>
+  </form>
+</div>

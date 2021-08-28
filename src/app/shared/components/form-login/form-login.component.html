@@ -1,0 +1,39 @@
+<mat-grid-list cols="1" rowHeight="90px" gutterSize="20px">
+  <mat-grid-tile>
+    <div class="logo-container">
+      <mat-icon aria-hidden="false" aria-label="usuario" class="logo-usuario">account_circle</mat-icon>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="login-descricao-container">
+      <span class="highlighted">Faça login para cadastrar pessoas no catálogo e gerenciar seus anúncios</span>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div class="form-login-container">
+  <form class="example-form" autocomplete="off" #loginForm="ngForm" (ngSubmit)="onSubmitLogin(loginForm)">
+    <mat-form-field appearance="fill">
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="email@email.com" type="email" name="email" ngModel required email #email>
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Senha</mat-label>
+      <input matInput placeholder="Insira sua senha aqui" type="password" name="senha" ngModel required  #password>
+      <mat-icon matSuffix>lock</mat-icon>
+    </mat-form-field>
+
+    <mat-grid-list cols="1" rowHeight="30px" gutterSize="20px">
+      <mat-grid-tile>
+         <button type="submit" mat-raised-button color="primary"  *ngIf="!isLoading" [disabled]="!loginForm.valid">ENTRAR</button></mat-grid-tile>
+         <mini-loading [isLoading]="isLoading" *ngIf="isLoading"></mini-loading>
+    </mat-grid-list>
+  </form>
+</div>
+
+<mat-grid-list cols="2" rowHeight="30px" gutterSize="20px" class="outros-links">
+  <mat-grid-tile> <button mat-button color="primary" (click)="onSelecionarNavegacao('cadastrar', 'Código de verificação')">CADASTRAR</button></mat-grid-tile>
+  <mat-grid-tile> <button mat-button color="primary" style="padding-left:0;" (click)="onSelecionarNavegacao('esqueci-senha', 'Recuperar Senha')">ESQUECI A SENHA</button></mat-grid-tile>
+</mat-grid-list>

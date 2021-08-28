@@ -1,0 +1,58 @@
+#catalogoList {
+  height: auto;
+  margin-bottom: 40px;
+
+  div {
+    height: 70px;
+
+    .pesquisar-anuncios-container {
+      margin-top: -12px;
+      text-align: right;
+
+      button {
+        position: relative;
+        left: 16px;
+      }
+    }
+  }
+  mat-form-field {
+    width: 100% !important;
+    margin-top: -25px;
+  }
+
+  mat-icon {
+    font-size: var(--icon);
+  }
+
+  .lightbox-content {
+    color: var(--white);
+    text-align: center;
+
+    input {
+      margin-top: 10px;
+      background-color: transparent;
+      font-size: var(--default-size);
+      border: solid 1px var(--silvermine);
+      border-radius: 6px;
+      height: 36px;
+      width: 75%;
+      caret-color: #4666ff;
+      color: var(--white);
+      outline-style: none;
+    }
+
+    .btn-buscar {
+      color: var(--white);
+      margin-top: 20px;
+    }
+  }
+
+  div.loading {
+    margin-top: 20px;
+  }
+
+  :host ::ng-deep .mat-form-field.mat-focused .mat-form-field-underline {
+    display: none !important;
+    background-color: var(--white) !important;
+  }
+}

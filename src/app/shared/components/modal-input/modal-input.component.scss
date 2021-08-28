@@ -1,0 +1,82 @@
+.material-icons {
+  display: inline;
+  color: var(--warning);
+}
+
+.invalid-field {
+  vertical-align: 8px;
+  // text-transform: capitalize;
+}
+
+.modal-caption {
+  color: var(--silvermine);
+  font-size: var(--default-size) !important;
+}
+
+
+h2 {
+  margin-bottom: 10px;
+  font-weight: normal !important;  
+}
+
+p {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+
+  li {
+    font-size: var(--default-size);
+  }
+}
+
+.icon-container {
+  text-align: center;
+
+  .icon-success {
+    color: var(--sky) !important;
+  }
+
+  .icon-warning {
+    color: var(--warning) !important;
+  }
+
+  .icon-error {
+    color: var(--uchiha) !important;
+  }
+
+  .icon-success, .icon-warning, .icon-error {
+    font-size: 40px;
+  }
+}
+
+
+.warning {
+  text-align: center;
+}
+
+.error {
+  color: var(--uchiha) !important;
+  text-align: center;
+}
+
+.success {
+  color: var(--sky) !important;
+  text-align: center;
+}
+
+.btn-warning {
+  color: var(--warning);
+}
+
+.btn-error {
+  color: var(--uchiha);
+}
+
+.btn-success {
+  color: var(--sky);
+}
+

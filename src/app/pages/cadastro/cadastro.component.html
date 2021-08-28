@@ -1,0 +1,30 @@
+<div *ngIf="usuarioEstaLogado">
+    <app-breadcrumb (onSelectStepEvent)="quandoUsuarioSelecionarUmPassoNaBreadcrumb($event)"
+    [step]="passoSelecionado" [enabled]="breadCrumbEnabled"></app-breadcrumb>
+
+    <!-- <div *ngIf="invalidFields && invalidFields.length > 0" class="invalid-message">
+        <p>Os campos em vermelho indicam que é necessário preenchê-los para conseguir efetuar o cadastro. Os demais são opcionais.</p>
+    </div> -->
+
+    <app-form-cadastro-desaparecidos
+      [formulario]="formulario"
+      [isSubmitButtonDisabled]=""
+      [isLoading]="carregandoOCadastro"
+      [passoSelecionadoNaBreadcrumb]="passoSelecionado"
+      [isSubmitted]="isComplete"
+      [oneSelected]="oneSelected"
+      [twoSelected]="twoSelected"
+      [threeSelected]="threeSelected"
+      [fourSelected]="fourSelected"
+      (onSubmitEvent)="quandoUsuarioClicarEmCadastrar($event)"
+      (onClickNextEvent)="quandoUsuarioClicarEmAvancar($event)">
+    </app-form-cadastro-desaparecidos>
+</div>
+
+<div *ngIf="!usuarioEstaLogado">
+    <h1>Cadastro</h1>
+    <p>Para cadastrar pessoas desaparecidas no catálogo, primeiro acesse sua conta.</p>
+</div>
+
+<full-loading type="spinner" [isLoading]="isLoading" [message]="mensagemCarregandoCadastro" zIndex="100000"></full-loading>
+

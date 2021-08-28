@@ -1,0 +1,6 @@
+<div class="attachment-container" (click)="openFileBox(field)">
+  <mat-icon class="sky" aria-hidden="false" aria-label="adicionar" *ngIf="clear">add</mat-icon>
+  <img [src]="this.src" *ngIf="!clear"  />
+
+  <input type="file" hidden="true" #field  class="attachment-field" [id]="fieldId" (input)="onSelectedFiles(field)" />
+</div>

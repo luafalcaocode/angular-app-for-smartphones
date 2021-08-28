@@ -1,0 +1,12 @@
+label {
+  color: var(--silvermine);
+  z-index: 3;
+  top: 36px;
+  position: relative;
+  left: 46px;
+}
+
+.bring-front {
+  position: relative;
+  z-index: var(--ahead);
+}

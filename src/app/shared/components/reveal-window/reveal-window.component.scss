@@ -1,0 +1,15 @@
+div.reveal-window {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: var(--white);
+  transition: var(--transition-normal);
+  padding-top: 100px;
+}
+
+
+.reveal-close {
+  top: 1500px !important;
+}

@@ -1,0 +1,23 @@
+.error {
+    text-align: center;
+  
+    .error-message {
+      z-index: 2;
+      position: relative;
+      top: 70px;    
+  
+      h2 {
+       
+      }
+      p {
+        color: var(--silvermine);
+      }
+    }
+    
+    img {
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      top: -30px;    
+    }  
+  }

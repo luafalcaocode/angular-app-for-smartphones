@@ -1,0 +1,14 @@
+<div id="reencontreHeader">
+  <mat-toolbar [ngStyle]="{'position': toolbarPosition }">
+    <mat-toolbar-row>
+
+        <mat-icon (click)="onClickLeftIcon()" class="logo-icon" aria-hidden="false" aria-label="Example delete icon">{{ leftIcon }}</mat-icon>
+
+      <span id="headerTitle" (click)="onClickLeftIcon()" [ngStyle]="{ 'margin-left' : titleMarginLeft }">{{ this.getTitle() }} </span>
+      <span class="logo-icon-spacer"></span>
+      <button color="default" mat-fab (click)="onClickIcon()" class="button-simple">
+        <mat-icon id="headerIcon" class="silvermine" aria-hidden="false" aria-label="usuario">{{ icon }} </mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

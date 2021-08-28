@@ -1,0 +1,14 @@
+<home-localizacao-atual></home-localizacao-atual>
+<home-welcome></home-welcome>
+
+<div *ngIf="usuarioEstaLogado">
+  <div *ngIf="anuncio.quantidade <= 0; else anunciosCadastrados">
+    <home-seus-anuncios cardType="add" titleCard="Você ainda não possui anúncios" [isLoading]="isLoading"></home-seus-anuncios>
+  </div>
+
+  <ng-template #anunciosCadastrados>
+    <home-seus-anuncios cardType="info" titleCard="Anúncios cadastrados" [anuncio]="anuncio" [isLoading]="isLoading" [error]="error"></home-seus-anuncios>
+  </ng-template>
+</div>
+
+<home-estatisticas></home-estatisticas>

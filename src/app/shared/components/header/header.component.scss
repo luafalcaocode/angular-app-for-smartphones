@@ -1,0 +1,47 @@
+mat-toolbar {
+  background-color: var(--white);
+  top: 0;
+  z-index: var(--special);
+  border-bottom: 1px solid rgba(0,0,0,.12);
+
+  #headerIcon {
+    padding: 0 !important;
+    left: -1px;
+    position: relative;
+    font-size: var(--icon);
+
+  }
+
+  #headerTitle {
+    padding-left: 0px;
+    padding-top: 4px;
+    margin-top: -5px;
+    margin-left: -16px;
+
+  }
+}
+
+.logo-icon {
+  padding: 0 14px;
+  font-size: var(--icon);
+}
+.logo-icon-spacer {
+  flex: 1 1 auto;
+}
+
+.ocultar-acesso {
+  opacity: 0;
+}
+
+::ng-deep .mat-tab-list {
+  overflow-x: auto !important;
+
+}
+
+
+
+::ng-deep mat-toolbar-row {
+  padding: 0 !important;
+}
+
+

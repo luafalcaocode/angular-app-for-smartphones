@@ -1,0 +1,20 @@
+<div id="reencontreNavbar">
+  <mat-tab-group mat-stretch-tabs class="example-stretched-tab mat-elevation-z4" animationDuration="0ms"
+    headerPosition="below" class="mat-elevation-z4 z-special-two">
+    <mat-tab *ngFor="let item of navbarItems">
+      <ng-template mat-tab-label id>
+        <div class="navigation-items" (click)="openPage(item.link)" [ngStyle]="{ 'padding-left' : item.padding, 'padding-right' : item.padding }">
+          <mat-icon class="navbar-tab-icon">{{ item.iconCode }}</mat-icon>
+          <span [ngClass]="item.titleClass" class="navbar-item-text">{{ item.title }}</span>
+        </div>
+      </ng-template>
+
+      <div>
+        <ng-content></ng-content>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>
+
+
