@@ -22,7 +22,9 @@ This service when be finished will be free and available for every person at Bra
 - Missing people details information
 
 
-# This repository is obsolete. I'm using Gitlab for host this code. To view the project running on production please navigate until: https://luafalcao.com/app/reencontre
+# This repository is obsolete. Now i'm using Gitlab for host this code. To view the project running on production please navigate until the URL below with Google Chrome or Safari:
+
+https://luafalcao.com/app/reencontre
 
 Obs.: All information available at this moment in the app are just samples of fake data to seed the application along de development and tests. 
 Obs2: if the app crashes just hit F5! 
